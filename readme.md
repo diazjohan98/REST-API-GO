@@ -39,14 +39,17 @@ Al enviar datos a la API, asegúrate de usar formato JSON en el cuerpo (Body) de
   "Name": "Aprender Arquitectura Backend",
   "Content": "Entender la diferencia entre Unmarshal y Encode en Go."
 }
+```
+
 ⚙️ Configuración e Instalación Local
+
 1. Requisitos Previos
-Tener instalado Go.
+   Tener instalado Go.
 
 Tener un servidor MySQL corriendo (ej. XAMPP). Nota: Por defecto, este proyecto apunta al puerto 3308.
 
 2. Configurar la Base de Datos
-Crea una base de datos llamada sistema y ejecuta el siguiente script SQL para crear la tabla necesaria:
+   Crea una base de datos llamada sistema y ejecuta el siguiente script SQL para crear la tabla necesaria:
 
 ```
 
@@ -61,8 +64,10 @@ content TEXT NOT NULL
 );
 
 ```
+
 3. Clonar y Ejecutar
-Abre tu terminal y ejecuta los siguientes comandos:
+   Abre tu terminal y ejecuta los siguientes comandos:
+
 ```
 
 Bash
@@ -82,6 +87,8 @@ go mod tidy
 # Iniciar el servidor
 
 go run main.go
+
+```
 
 ```
 👨‍💻 Autor:
