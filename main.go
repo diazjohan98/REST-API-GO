@@ -8,6 +8,7 @@ import (
 	"Go-REST-API/routes"
 
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 )
 
 // Dejamos la ruta de bienvenida aquí porque es muy sencilla
@@ -25,7 +26,14 @@ func main() {
 	// 3. Delegamos el registro de las rutas a nuestra capa de Enrutamiento
 	routes.SetTaskRoutes(router)
 
-	// 4. Levantamos el servidor
-	fmt.Println("Servidor backend corriendo exitosamente en el puerto 3000...")
-	log.Fatal(http.ListenAndServe(":3000", router))
+	// 4. Configuramos el Middleware de CORS
+	// allowAll permite peticiones de cualquier puerto (ideal para desarrollo local)
+	c := cors.AllowAll()
+
+	// Envolvemos nuestro enrutador principal dentro del portero CORS
+	handlerConCORS := c.Handler(router)
+
+	// 5. Levantamos el servidor usando el nuevo handler
+	fmt.Println("Servidor backend corriendo en el puerto 3000 con CORS habilitado...")
+	log.Fatal(http.ListenAndServe(":3000", handlerConCORS))
 }
