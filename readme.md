@@ -48,22 +48,29 @@ Al enviar datos a la API, asegúrate de usar formato JSON en el cuerpo (Body) de
 
 Tener un servidor MySQL corriendo (ej. XAMPP). Nota: Por defecto, este proyecto apunta al puerto 3308.
 
-2. Configurar la Base de Datos
-   Crea una base de datos llamada sistema y ejecuta el siguiente script SQL para crear la tabla necesaria:
+### 2. Configurar la Base de Datos y Variables de Entorno
 
-```
+**Base de Datos:**
+Crea una base de datos llamada `sistema` y ejecuta el siguiente script SQL:
 
-SQL
+```sql
 CREATE DATABASE IF NOT EXISTS sistema;
 USE sistema;
 
 CREATE TABLE tasks (
-id INT AUTO_INCREMENT PRIMARY KEY,
-name VARCHAR(100) NOT NULL,
-content TEXT NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    content TEXT NOT NULL
 );
-
 ```
+
+Variables de Entorno (.env):
+Por seguridad, las credenciales no están incluidas en el código fuente. Debes crear tu propio archivo de configuración:
+
+En la raíz del proyecto, copia el archivo de ejemplo:
+cp .env.example .env
+
+Abre el nuevo archivo .env y configura tus credenciales locales de MySQL (usuario, contraseña y puerto).
 
 3. Clonar y Ejecutar
    Abre tu terminal y ejecuta los siguientes comandos:
