@@ -76,7 +76,7 @@ Abre el nuevo archivo .env y configura tus credenciales locales de MySQL (usuari
    Abre tu terminal y ejecuta los siguientes comandos:
 
 ```
-
+git add .
 Bash
 
 # Clonar el repositorio
